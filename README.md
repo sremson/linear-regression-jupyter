@@ -7,5 +7,9 @@ i used the libraries ggplot, scikit-learn, pandas, matplotlib. i had a hard time
 
 for the R plot, the R squared is 0.7852. the python r squared is 0.7852, which is the same as the non adjusted R plot.
 
-the hardest part of these assignments for me is getting github to work!! i swear it hates me
+the hardest part of these assignments for me is getting github to work!! i swear it hates me. i always end up having to do something weird and then remembering i'm not actually in the folder when i'm in the terminal and that solves all my problems lol
 
+okay i made the python and r scripts and then made them modifiable!!
+this allows the script to be read and then the image can be generated to show the graph for each script.
+
+this assignment has also reaffirmed to me just how touchy script is with being case sensitive! 
