@@ -1,28 +1,3 @@
-import sys
-import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-
-if len(sys.argv) != 4:
-    print("Usage: python linear_regression_python.py <filename> <x_column> <y_column>")
-    sys.exit(1)
-
-filename = sys.argv[1]
-x_col = sys.argv[2]
-y_col = sys.argv[3]
-
-data = pd.read_csv(filename)
-model = LinearRegression()
-model.fit(data[[x_col]], data[[y_col]])
-
-plt.scatter(data[[x_col]], data[[y_col]], color='red')
-plt.plot(data[[x_col]], model.predict(data[[x_col]]), color='blue')
-plt.title(f'{y_col} vs {x_col}')
-plt.xlabel(x_col)
-plt.ylabel(y_col)
-plt.savefig("linear_regression_python_output.png")
-plt.show()
-
 #!/usr/bin/env python
 # coding: utf-8
 
@@ -76,7 +51,45 @@ model.score(dataset[["YearsExperience"]], dataset[["Salary"]])  # R-squared
 
 # yay i think i did it wooooooo
 
+# I'm now beginning assignment 3. First I'm going to plot again with Matplotlib
+
+# In[1]:
+
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import linregress
+from sklearn.metrics import mean_squared_error
+
+# Data
+x = np.array([1, 2, 3, 4, 5])
+y = np.array([2.1, 4.3, 6.1, 8.0, 10.1])
+
+# Linear regression
+slope, intercept, r_value, p_value, std_err = linregress(x, y)
+y_pred = slope * x + intercept
+mse = mean_squared_error(y, y_pred)
+
+# Plot
+plt.plot(x, y_pred, 'r-', label='Fitted Line')
+plt.text(1.5, max(y) - 1,
+         f"y = {slope:.2f}x + {intercept:.2f}\n"
+         f"r = {r_value:.2f}\nMSE = {mse:.2f}",
+         fontsize=12)
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title("Regression")
+plt.legend()
+plt.savefig("regression_plot_python.png")
+plt.show()
+
+
+# Here we can see the plot from the data! MSE is 0.01 for this, which is the error between the predictions and the actual values. 
+
+# The code is reading the script and then interpreting the data to show this regression plot.
+
 # In[ ]:
+
 
 
 
